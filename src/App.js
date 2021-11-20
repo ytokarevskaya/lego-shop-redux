@@ -5,7 +5,7 @@ import products from './mock'
 function App() {
   return (
     <div className='appWrapper'>
-      <Header cart={{}} />
+      <Header />
       <Main products={products} />
     </div>
   );

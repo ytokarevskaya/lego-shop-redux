@@ -1,9 +1,10 @@
+import {useSelector} from 'react-redux'
 import css from './Header.module.css'
 import logo from '../../assets/lego.svg'
 import cartImg from '../../assets/shopping-cart.svg'
 
-const Header = (props) => {
-	const {count, sum} = props.cart
+const Header = () => {
+	const cart = useSelector(state => state.cart)
 	return (
 		<header className={css.header}>
 			<img className={css.logo} src={logo} alt='Logo' />
@@ -14,10 +15,10 @@ const Header = (props) => {
 			</nav>
 			<div className={css.cart}>
 				<img className={css.cartImg} src={cartImg} alt='' />
-				{count > 0 && (
+				{cart.count > 0 && (
 					<>
-						<div className={css.cartCount}>{count}</div>
-						<p className={css.cartSum}>{sum} руб.</p>
+						<div className={css.cartCount}>{cart.count}</div>
+						<p className={css.cartSum}>{cart.price} руб.</p>
 					</>
 				)}
 			</div>
